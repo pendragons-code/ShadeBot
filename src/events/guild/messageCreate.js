@@ -1,16 +1,16 @@
 const { db } = require("../../loaders/ShadeBot.js")
 const permList = require("../../assets/permission.json")
-const { prefix } = require("../../../config.json")
+const { prefix, botID } = require("../../../config.json")
 module.exports = async (ShadeBot, messageCreate) => {
-	const guildPrefix = await db.get(`prefix_${messageCreate.guild.id}`)
+	let guildPrefix = await db.get(`prefix_${messageCreate.guild.id}`)
 	if(guildPrefix == null) guildPrefix = prefix
 	const mainPrefix = messageCreate.content.includes(guildPrefix) ? guildPrefix: `<@${botID}>`
 	if(messageCreate.author.bot || messageCreate.channel.type == "dm" || messageCreate.content.indexOf(mainPrefix) !==0 ) return
 	const args = messageCreate.content.slice(mainPrefix.length).trim().split(/ +/g);
 	const command = args.shift().toLowerCase();
-	const cmd = bot.commands.get(command) || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
+	const cmd = ShadeBot.messageCommands.get(command) || ShadeBot.messageCommands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
 	if(!cmd) return
-	if(cmd.maxargs) if(args[cmd.maxargs + 1]) return messageCreate.channel.send("You are sending too many arguments for this command!")
+	if(cmd.maxargs) if(cmd.maxargs[i+1]) return messageCreate.channel.send("You are sending too many arguments for this command!")
 	if(cmd.minperms) for(let i = 0; i < cmd.minperms.length; i++) if(!messageCreate.member.permissions.has(cmd.minperms[1])){
 		let MissingPermissionName = permList[cmd.minperms[1]]
 		if(Array.isArray(minperms[i])){

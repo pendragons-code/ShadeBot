@@ -25,7 +25,7 @@ const ShadeBot = new Client({
 	]
 })
 ShadeBot.messageCommands = new Collection()
-
+ShadeBot.slashCommands = new Collection()
 
 
 module.exports = { ShadeBot, db }
