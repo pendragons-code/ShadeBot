@@ -13,3 +13,6 @@ npm run deploy
 
 # commands as of now:
 Slash commands added, still no functional value
+
+# notes
+When you add the bot in the link, remember to choose the `application.commands` scope.
