@@ -10,7 +10,7 @@ module.exports = async (ShadeBot, messageCreate) => {
 	const command = args.shift().toLowerCase();
 	const cmd = bot.commands.get(command) || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
 	if(!cmd) return
-	if(cmd.maxargs) for(let i = 0; i < cmd.maxargs; i++) if(args[i+1]) return messageCreate.channel.send("You are sending too many arguments for this command!")
+	if(cmd.maxargs) if(args[cmd.maxargs + 1]) return messageCreate.channel.send("You are sending too many arguments for this command!")
 	if(cmd.minperms) for(let i = 0; i < cmd.minperms.length; i++) if(!messageCreate.member.permissions.has(cmd.minperms[1])){
 		let MissingPermissionName = permList[cmd.minperms[1]]
 		if(Array.isArray(minperms[i])){
