@@ -12,4 +12,4 @@ npm run deploy
 ```
 
 # commands as of now:
-I have not added any functional value to the bot, so yeah, that said I will implement slash commands too!
+Slash commands added, still no functional value
