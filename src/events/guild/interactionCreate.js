@@ -1,7 +1,7 @@
 const { InteractionType, EmbedBuilder } = require("discord.js")
 const permList = require("../../assets/permission.json")
 module.exports = async (ShadeBot, inter) => {
-	if(!inter.type === InteractionType.ApplicationCommand) return
+	if(inter.type != InteractionType.ApplicationCommand) return
 	const slashCmd = ShadeBot.slashCommands.get(inter.commandName)
 	const errorEmbed = new EmbedBuilder()
 	errorEmbed.setTitle("Error!")
