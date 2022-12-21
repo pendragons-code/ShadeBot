@@ -6,10 +6,6 @@ module.exports = async (ShadeBot, inter) => {
 	const errorEmbed = new EmbedBuilder()
 	errorEmbed.setTitle("Error!")
 	if(!slashCmd) return
-	if(slashCmd.maxargs) if(args[slashCmd.maxargs + 1]) {
-		errorEmbed.setDescription("You have too many arguments!")
-		return inter.reply({ embeds: [errorEmbed] })
-	}
 	if(slashCmd.minperms){
 		for(let i = 0; i < slashCmd.minperms.length; i++) if(!inter.member.permissions.has(slashCmd.minperms[i])){
 			let PermissionQuery = permList[slashCmd.minperms[i]]
