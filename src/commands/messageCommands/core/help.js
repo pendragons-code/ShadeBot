@@ -6,6 +6,5 @@ module.exports = {
 	utilisation: "help",
 	async execute(ShadeBot, messageCreate, args, mainPrefix){
 		messageCreate.channel.send("Hello World!")
-		console.log("Hello World!")
 	}
 }
