@@ -6,7 +6,6 @@ module.exports = {
 	description: "A basic help command!",
 	utilisation: "help",
 	async execute({ ShadeBot, inter }) {
-		inter.channel.send("Hello World!")
-		console.log("Hello World!")
+		inter.reply("Hello World!")
 	},
 };
