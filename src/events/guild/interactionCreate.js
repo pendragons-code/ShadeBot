@@ -29,6 +29,6 @@ module.exports = async (ShadeBot, inter) => {
 	} catch(e){
 		errorEmbed.setDescription("Something went wrong!")
 		inter.reply({ embeds: [errorEmbed] })
-		return console.error("Error!", e)
+		return console.error(e)
 	}
 }
