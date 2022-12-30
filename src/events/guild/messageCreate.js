@@ -26,7 +26,7 @@ module.exports = async (ShadeBot, messageCreate) => {
 	if(args[0] === "-h") return messageCreate.channel.send(cmd.utilisation)
 	cmd.execute(ShadeBot, messageCreate, args, mainPrefix)
 	.catch((error) => {
-		console.error("Error!", error)
+		console.error(error)
 		return messageCreate.channel.send("Something went wrong!")
 	})
 	console.log(`${messageCreate.author.username} ran ${cmd.name} in ${messageCreate.guild.id}`)
